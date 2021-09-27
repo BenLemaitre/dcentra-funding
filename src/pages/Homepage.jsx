@@ -11,7 +11,12 @@ import {
 
 const Homepage = () => {
   return (
-    <Flex w={"full"} h={"100vh"} justifyContent={"center"}>
+    <Flex
+      w={"full"}
+      h={"100vh"}
+      justifyContent={"center"}
+      bgGradient="linear(to-b, white,green.100)"
+    >
       <Stack
         w={"full"}
         as={Box}
@@ -35,7 +40,12 @@ const Homepage = () => {
         </Text>
         <Stack direction={"row"} spacing={6} alignSelf={"center"}>
           <Link to="/projects">
-            <Button fontSize={"sm"} fontWeight={400} variant={"outline"}>
+            <Button
+              fontSize={"sm"}
+              bg={"gray.100"}
+              fontWeight={400}
+              variant={"outline"}
+            >
               Discover
             </Button>
           </Link>
