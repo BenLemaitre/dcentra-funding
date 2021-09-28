@@ -14,7 +14,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
-const Navbar = () => {
+const Navbar = ({ account }) => {
   return (
     <Box>
       <Flex
@@ -49,9 +49,14 @@ const Navbar = () => {
           direction={"row"}
           spacing={6}
         >
-          <Button as={"a"} fontSize={"sm"} fontWeight={400} variant={"link"}>
-            0x00000000000
-          </Button>
+          {account ? (
+            <Button as={"a"} fontSize={"sm"} fontWeight={400} variant={"link"}>
+              {account.substring(0, 6)}...
+              {account.substring(38, 42)}
+            </Button>
+          ) : (
+            <span />
+          )}
         </Stack>
       </Flex>
     </Box>

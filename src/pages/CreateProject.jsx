@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import {
-  Box,
   Stack,
   Heading,
   Text,
@@ -11,7 +10,60 @@ import {
   NumberInputField,
 } from "@chakra-ui/react";
 
-const CreateProject = () => {
+const ipfsClient = require("ipfs-http-client");
+const ipfs = ipfsClient({
+  host: "ipfs.infura.io",
+  port: 5001,
+  protocol: "https",
+});
+
+const useFormField = (initialValue = "") => {
+  const [value, setValue] = useState(initialValue);
+  const onChange = useCallback((e) => setValue(e.target.value), []);
+  return { value, onChange };
+};
+
+const CreateProject = ({ dcentra, account }) => {
+  const titleField = useFormField();
+  const descriptionField = useFormField();
+  const goalField = useFormField();
+  const [buffer, setBuffer] = useState({});
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(titleField.value, descriptionField.value, goalField.value);
+    try {
+      const result = await ipfs.add(buffer);
+      console.log(result);
+
+      dcentra.methods
+        .createProject(
+          titleField.value,
+          descriptionField.value,
+          goalField.value,
+          result.path
+        )
+        .send({ from: account })
+        .on("transactionHash", (hash) => {
+          console.log("project was added");
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const captureFile = (e) => {
+    e.preventDefault();
+
+    const file = e.target.files[0];
+    const reader = new window.FileReader();
+
+    reader.readAsArrayBuffer(file);
+    reader.onloadend = () => {
+      setBuffer(reader.result);
+    };
+  };
+
   return (
     <Stack w={"full"} h={"100vh"} bgGradient="linear(to-b, white,green.100)">
       <Stack
@@ -39,7 +91,7 @@ const CreateProject = () => {
             funded!
           </Text>
         </Stack>
-        <Box as={"form"} mt={10}>
+        <form onSubmit={handleSubmit}>
           <Stack spacing={4}>
             <Input
               placeholder="Title"
@@ -49,6 +101,8 @@ const CreateProject = () => {
               _placeholder={{
                 color: "gray.500",
               }}
+              required
+              {...titleField}
             />
             <Textarea
               placeholder="Describe your project in a few words..."
@@ -59,6 +113,8 @@ const CreateProject = () => {
               _placeholder={{
                 color: "gray.500",
               }}
+              required
+              {...descriptionField}
             />
             <Stack
               direction={"row"}
@@ -68,14 +124,19 @@ const CreateProject = () => {
             >
               <Text color={"gray.600"}>Your Goal (USD):</Text>
               <NumberInput precision={2} bg={"gray.100"} color={"gray.500"}>
-                <NumberInputField border={0} />
+                <NumberInputField border={0} required {...goalField} />
               </NumberInput>
             </Stack>
-            <Button fontFamily={"heading"} bg={"gray.200"} color={"gray.800"}>
-              Upload Image
-            </Button>
+            <Input
+              type="file"
+              onChange={captureFile}
+              fontFamily={"heading"}
+              bg={"gray.200"}
+              color={"gray.800"}
+            />
           </Stack>
           <Button
+            type="submit"
             fontFamily={"heading"}
             mt={8}
             w={"full"}
@@ -88,7 +149,7 @@ const CreateProject = () => {
           >
             Submit
           </Button>
-        </Box>
+        </form>
         form
       </Stack>
     </Stack>
