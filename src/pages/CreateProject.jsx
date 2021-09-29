@@ -1,9 +1,13 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef } from "react";
+import { FiFile } from "react-icons/fi";
 import {
   Stack,
   Heading,
   Text,
   Input,
+  InputGroup,
+  InputLeftElement,
+  Icon,
   Button,
   Textarea,
   NumberInput,
@@ -23,11 +27,15 @@ const useFormField = (initialValue = "") => {
   return { value, onChange };
 };
 
+const acceptedFileTypes = ["jpg", "jpeg", "png"];
+
 const CreateProject = ({ dcentra, account }) => {
   const titleField = useFormField();
   const descriptionField = useFormField();
   const goalField = useFormField();
+  const fileInputRef = useRef();
   const [buffer, setBuffer] = useState({});
+  const [filename, setFilename] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,6 +69,7 @@ const CreateProject = ({ dcentra, account }) => {
     reader.readAsArrayBuffer(file);
     reader.onloadend = () => {
       setBuffer(reader.result);
+      setFilename(file.name);
     };
   };
 
@@ -127,13 +136,33 @@ const CreateProject = ({ dcentra, account }) => {
                 <NumberInputField border={0} required {...goalField} />
               </NumberInput>
             </Stack>
-            <Input
-              type="file"
-              onChange={captureFile}
-              fontFamily={"heading"}
-              bg={"gray.200"}
-              color={"gray.800"}
-            />
+            <InputGroup>
+              <InputLeftElement
+                pointerEvents="none"
+                children={<Icon as={FiFile} />}
+              />
+              <input
+                type="file"
+                accept={acceptedFileTypes}
+                style={{ display: "none" }}
+                ref={fileInputRef}
+                onChange={captureFile}
+              />
+              <Input
+                as={Button}
+                fontFamily={"heading"}
+                bg={"gray.200"}
+                color={"gray.800"}
+                onClick={() => fileInputRef.current.click()}
+              >
+                Upload File
+              </Input>
+            </InputGroup>
+            {filename.length > 0 ? (
+              <Text color={"gray.600"}>{filename}</Text>
+            ) : (
+              <span />
+            )}
           </Stack>
           <Button
             type="submit"
