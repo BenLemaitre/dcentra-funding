@@ -13,6 +13,7 @@ import CreateProject from "./pages/CreateProject";
 function App() {
   const [dcentra, setDcentra] = useState({});
   const [account, setAccount] = useState("0x0");
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     const loadWeb3 = async () => {
@@ -41,6 +42,13 @@ function App() {
           networkData.address
         );
         setDcentra(dcentra);
+
+        const projectCount = await dcentra.methods.projectCount().call();
+
+        for (let i = 0; i < projectCount; i++) {
+          const project = await dcentra.methods.projects(i).call();
+          setProjects([...projects, project]);
+        }
       }
     };
 
@@ -53,7 +61,9 @@ function App() {
       <Navbar account={account} />
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route path="/projects" component={Projects} />
+        <Route path="/projects">
+          <Projects dcentra={dcentra} projects={projects} />
+        </Route>
         <Route path="/create">
           <CreateProject dcentra={dcentra} account={account} />
         </Route>

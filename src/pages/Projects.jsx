@@ -1,8 +1,17 @@
-import React from "react";
-import { Heading } from "@chakra-ui/layout";
+import React, { useState, useEffect } from "react";
 
-const Projects = () => {
-  return <Heading>Projects Page</Heading>;
+import ListItem from "../components/ListItem";
+
+const Projects = ({ dcentra, projects }) => {
+  useEffect(() => {}, []);
+
+  return (
+    <div>
+      {projects.map((project, key) => {
+        return <ListItem project={project} key={key} />;
+      })}
+    </div>
+  );
 };
 
 export default Projects;
