@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Badge } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 
 const ListItem = ({ project }) => {
   return (
