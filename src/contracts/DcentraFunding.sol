@@ -35,10 +35,10 @@ contract DcentraFunding {
         require(_goal > 0);
         require(msg.sender != address(0));
 
-        projectCount++;
         projects[projectCount] = Project(projectCount, _title, _desc, _goal, 0, block.timestamp, _imageHash, msg.sender);
-    
         emit ProjectCreated(projectCount, _title, _desc, _goal, 0, block.timestamp, _imageHash, msg.sender);
+        
+        projectCount++;
     }
 
     function updateReceivedFunds (uint _id, uint _received) public {
