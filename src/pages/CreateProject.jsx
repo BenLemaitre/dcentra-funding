@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import { FiFile } from "react-icons/fi";
 import {
   Stack,
@@ -12,6 +13,7 @@ import {
   Textarea,
   NumberInput,
   NumberInputField,
+  useToast,
 } from "@chakra-ui/react";
 
 const ipfsClient = require("ipfs-http-client");
@@ -30,6 +32,9 @@ const useFormField = (initialValue = "") => {
 const acceptedFileTypes = ["jpg", "jpeg", "png"];
 
 const CreateProject = ({ dcentra, account }) => {
+  const history = useHistory();
+  const toast = useToast();
+
   const titleField = useFormField();
   const descriptionField = useFormField();
   const goalField = useFormField();
@@ -54,6 +59,14 @@ const CreateProject = ({ dcentra, account }) => {
         .send({ from: account })
         .on("transactionHash", (hash) => {
           console.log("project was added");
+          toast({
+            title: "Congratulations!",
+            description: "You've created your project!",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+          });
+          history.push("/projects");
         });
     } catch (error) {
       console.error(error);
