@@ -5,7 +5,7 @@ const Dcentra = artifacts.require("DcentraFunding");
 
 require("chai").use(require("chai-as-promised")).should();
 
-contract("DcentraFunding", ([deployer, creator]) => {
+contract("DcentraFunding", ([deployer, creator, funder]) => {
   let dcentra;
 
   before(async () => {
@@ -30,7 +30,7 @@ contract("DcentraFunding", ([deployer, creator]) => {
       result = await dcentra.createProject("The title", "The desc", 200, hash, {
         from: creator,
       });
-      projectCount = await dcentra.projectCount();
+      projectCount = (await dcentra.projectCount()) - 1;
     });
 
     it("creates projects", async () => {
@@ -38,9 +38,9 @@ contract("DcentraFunding", ([deployer, creator]) => {
       assert.equal(projectCount, 0);
       const event = result.logs[0].args;
       assert.equal(event.id.toNumber(), projectCount, "id is correct");
-      assert.equal(event.hash, hash, "hash is correct");
-      assert.equal(event.title, "Project Title", "title is correct");
-      assert.equal(event.description, "Project desc", "project is correct");
+      assert.equal(event.imageHash, hash, "hash is correct");
+      assert.equal(event.title, "The title", "title is correct");
+      assert.equal(event.description, "The desc", "project is correct");
       assert.equal(event.goal, 200, "goal is correct");
       assert.equal(event.received, 0, "received is correct");
       assert.equal(event.creator, creator, "creator is correct");
@@ -59,6 +59,42 @@ contract("DcentraFunding", ([deployer, creator]) => {
       // must have goal
       await dcentra.createProject("The title", "The desc", 0, hash, {
         from: creator,
+      }).should.be.rejected;
+    });
+
+    it("funds a project", async () => {
+      // Track the author balance before purchase
+      let oldCreatorBalance;
+      oldCreatorBalance = await web3.eth.getBalance(creator);
+      oldCreatorBalance = new web3.utils.BN(oldCreatorBalance);
+
+      result = await dcentra.updateReceivedFunds(projectCount, {
+        from: funder,
+        value: web3.utils.toWei("1", "Ether"),
+      });
+
+      // success
+      const event = result.logs[0].args;
+      assert.equal(event.id.toNumber(), projectCount, "correct id");
+      assert.equal(event.received, "1000000000000000000", "correct amount");
+      assert.equal(event.creator, creator, "correct creator");
+
+      let newCreatorBalance;
+      newCreatorBalance = await web3.eth.getBalance(creator);
+      newCreatorBalance = new web3.utils.BN(newCreatorBalance);
+
+      let givenFunds;
+      givenFunds = web3.utils.toWei("1", "Ether");
+      givenFunds = new web3.utils.BN(givenFunds);
+
+      const expectedBalance = oldCreatorBalance.add(givenFunds);
+
+      assert.equal(newCreatorBalance.toString(), expectedBalance.toString());
+
+      // failure: funding a project that doesnt exist
+      await dcentra.updateReceivedFunds(999, {
+        from: funder,
+        value: web3.utils.toWei("1", "Ether"),
       }).should.be.rejected;
     });
   });

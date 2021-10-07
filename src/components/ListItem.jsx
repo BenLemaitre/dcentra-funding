@@ -27,7 +27,7 @@ const ListItem = ({ project }) => {
 
         <Box d="flex" mt="2" alignItems="center">
           <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            ${project.received} / ${project.goal}
+            {project.received} ETH / {project.goal} ETH
           </Box>
         </Box>
       </Box>

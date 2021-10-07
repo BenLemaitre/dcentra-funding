@@ -144,7 +144,7 @@ const CreateProject = ({ dcentra, account }) => {
               align="center"
               justify="space-between"
             >
-              <Text color={"gray.600"}>Your Goal (USD):</Text>
+              <Text color={"gray.600"}>Your Goal (ETH):</Text>
               <NumberInput precision={2} bg={"gray.100"} color={"gray.500"}>
                 <NumberInputField border={0} required {...goalField} />
               </NumberInput>

@@ -27,6 +27,17 @@ contract DcentraFunding {
         address payable creator
     );
 
+    event ProjectFunded(
+        uint id,
+        string title,
+        string description,
+        uint goal,
+        uint received,
+        uint date,
+        string imageHash,
+        address payable creator
+    );
+
     function createProject (string memory _title, string memory _desc, uint _goal, string memory _imageHash) public {
         // Make sure data sent is complete
         require(bytes(_title).length > 0);
@@ -41,7 +52,22 @@ contract DcentraFunding {
         projectCount++;
     }
 
-    function updateReceivedFunds (uint _id, uint _received) public {
-
+    function updateReceivedFunds (uint _id) public payable {
+        // make sure id is valid
+        require(_id >= 0 && _id < projectCount);
+        // make sure funds are higher than 0
+        require(msg.value > 0);
+        // fetch project
+        Project memory _project = projects[_id];
+        // fetch creator
+        address payable _creator = _project.creator;
+        // pay creator
+        address(_creator).transfer(msg.value);
+        // increment received funds
+        _project.received += msg.value;
+        // update project
+        projects[_id] = _project;
+        // trigger event
+        emit ProjectFunded(_id, _project.title, _project.description, _project.goal, _project.received, _project.date, _project.imageHash, _creator);
     }
 }
