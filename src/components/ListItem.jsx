@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Image } from "@chakra-ui/react";
+import FundButton from "./FundButton";
 
 const ListItem = ({ project }) => {
   return (
@@ -25,10 +26,11 @@ const ListItem = ({ project }) => {
 
         <Box>{project.description}</Box>
 
-        <Box d="flex" mt="2" alignItems="center">
-          <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {project.received} ETH / {project.goal} ETH
+        <Box d="flex" mt="2" justifyContent="space-between" alignItems="center">
+          <Box as="span" color="gray.600" fontSize="sm">
+            {project.received} / {project.goal} ETH
           </Box>
+          <FundButton />
         </Box>
       </Box>
     </Box>
