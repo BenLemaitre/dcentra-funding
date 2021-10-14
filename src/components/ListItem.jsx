@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Image } from "@chakra-ui/react";
 import FundButton from "./FundButton";
 
 const ListItem = ({ project }) => {
+  const [receivedFunds, setReceivedFunds] = useState(0);
+
+  useEffect(() => {
+    setReceivedFunds(
+      window.web3.utils.fromWei(project.received.toString(), "Ether")
+    );
+  }, [project]);
+
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Image
@@ -28,9 +36,9 @@ const ListItem = ({ project }) => {
 
         <Box d="flex" mt="2" justifyContent="space-between" alignItems="center">
           <Box as="span" color="gray.600" fontSize="sm">
-            {project.received} / {project.goal} ETH
+            {receivedFunds} / {project.goal} ETH
           </Box>
-          <FundButton />
+          <FundButton projectId={project.id} />
         </Box>
       </Box>
     </Box>

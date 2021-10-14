@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { fundProject } from "../utils";
 import {
   Popover,
   PopoverTrigger,
@@ -11,13 +12,36 @@ import {
   Button,
   NumberInput,
   NumberInputField,
+  useToast,
 } from "@chakra-ui/react";
 
-const FundButton = () => {
+const FundButton = ({ projectId }) => {
   const [sendValue, setSendValue] = useState(0);
+  const toast = useToast();
 
   const onSubmitTransfer = async () => {
-    console.log(sendValue);
+    const amountInWei = window.web3.utils.toWei(sendValue, "Ether");
+    const hasFundedProject = await fundProject(projectId, amountInWei);
+    console.log(hasFundedProject);
+    if (hasFundedProject) {
+      toast({
+        title: "Thanks!",
+        description: "You've successfully funded a project!",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+
+      return;
+    }
+
+    toast({
+      title: "Sorry!",
+      description: "An error has occured!",
+      status: "error",
+      duration: 5000,
+      isClosable: true,
+    });
   };
 
   const handleChange = (e) => {

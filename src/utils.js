@@ -38,3 +38,22 @@ export const getProjects = async () => {
 
   return projects;
 };
+
+export const fundProject = async (projectId, amount) => {
+  try {
+    const dcentra = await getDcentraContract();
+    const accounts = await window.web3.eth.getAccounts();
+
+    const hasBeenFunded = await dcentra.methods
+      .updateReceivedFunds(projectId)
+      .send({ from: accounts[0], value: amount })
+      .on("transactionHash", (hash) => {
+        return true;
+      });
+
+    return hasBeenFunded;
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+};
