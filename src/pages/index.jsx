@@ -5,51 +5,51 @@ import {
   Stack,
   Button,
   Text,
+  Container,
+  Heading,
   useBreakpointValue
 } from '@chakra-ui/react'
+import Layout from '../components/layouts/article'
 
 const Homepage = () => {
   return (
-    <Flex w={'full'} h={'100vh'} justifyContent={'center'}>
-      <Stack
-        w={'full'}
-        as={Box}
-        textAlign={'center'}
-        spacing={6}
-        py={{ base: 20, md: 36 }}
-        maxW={'2xl'}
-      >
-        <Text
-          fontWeight={700}
-          lineHeight={1.2}
-          fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
-        >
-          Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
-          tempor
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
-          tempor. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-          eiusmod tempor
-        </Text>
-        <Stack direction={'row'} spacing={6} alignSelf={'center'}>
-          <NextLink href="/projects">
-            <Button fontSize={'sm'} fontWeight={400} variant={'outline'}>
-              Discover
-            </Button>
-          </NextLink>
-          <NextLink href="/create-project">
-            <Button
-              display={{ base: 'none', md: 'inline-flex' }}
-              fontSize={'sm'}
-              fontWeight={600}
-            >
-              Start Project
-            </Button>
-          </NextLink>
+    <Layout>
+      <Container>
+        <Heading as="h2" variant="page-title" textAlign="center" mb={6}>
+          Lorem ipsum dolor sit amet consectetur
+        </Heading>
+        <Stack direction="column" spacing={6}>
+          <Text textAlign="center">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+            eiusmod tempor. Lorem ipsum dolor sit amet consectetur adipiscing
+            elit sed do eiusmod tempor.
+          </Text>
+          <Box direction="row" alignSelf="center">
+            <NextLink href="/projects">
+              <Button
+                fontSize={'sm'}
+                fontWeight={400}
+                variant={'outline'}
+                mx={6}
+                colorScheme="teal"
+              >
+                Discover
+              </Button>
+            </NextLink>
+            <NextLink href="/create-project">
+              <Button
+                fontSize={'sm'}
+                fontWeight={600}
+                mx={6}
+                colorScheme="teal"
+              >
+                Start Project
+              </Button>
+            </NextLink>
+          </Box>
         </Stack>
-      </Stack>
-    </Flex>
+      </Container>
+    </Layout>
   )
 }
 
