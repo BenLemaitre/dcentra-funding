@@ -253,21 +253,14 @@
   "ast": {
     "absolutePath": "project:/src/contracts/DcentraFunding.sol",
     "exportedSymbols": {
-      "DcentraFunding": [
-        224
-      ]
+      "DcentraFunding": [224]
     },
     "id": 225,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 1,
-        "literals": [
-          "solidity",
-          "^",
-          "0.5",
-          ".16"
-        ],
+        "literals": ["solidity", "^", "0.5", ".16"],
         "nodeType": "PragmaDirective",
         "src": "0:24:0"
       },
@@ -278,9 +271,7 @@
         "documentation": null,
         "fullyImplemented": true,
         "id": 224,
-        "linearizedBaseContracts": [
-          224
-        ],
+        "linearizedBaseContracts": [224],
         "name": "DcentraFunding",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1226,10 +1217,7 @@
                       "id": 75,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        242,
-                        243
-                      ],
+                      "overloadedDeclarations": [242, 243],
                       "referencedDeclaration": 242,
                       "src": "1001:7:0",
                       "typeDescriptions": {
@@ -1374,10 +1362,7 @@
                       "id": 84,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        242,
-                        243
-                      ],
+                      "overloadedDeclarations": [242, 243],
                       "referencedDeclaration": 242,
                       "src": "1044:7:0",
                       "typeDescriptions": {
@@ -1522,10 +1507,7 @@
                       "id": 93,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        242,
-                        243
-                      ],
+                      "overloadedDeclarations": [242, 243],
                       "referencedDeclaration": 242,
                       "src": "1086:7:0",
                       "typeDescriptions": {
@@ -1616,10 +1598,7 @@
                       "id": 102,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        242,
-                        243
-                      ],
+                      "overloadedDeclarations": [242, 243],
                       "referencedDeclaration": 242,
                       "src": "1133:7:0",
                       "typeDescriptions": {
@@ -1764,10 +1743,7 @@
                       "id": 108,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        242,
-                        243
-                      ],
+                      "overloadedDeclarations": [242, 243],
                       "referencedDeclaration": 242,
                       "src": "1161:7:0",
                       "typeDescriptions": {
@@ -2569,10 +2545,7 @@
                       "id": 156,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        242,
-                        243
-                      ],
+                      "overloadedDeclarations": [242, 243],
                       "referencedDeclaration": 242,
                       "src": "1570:7:0",
                       "typeDescriptions": {
@@ -2679,10 +2652,7 @@
                       "id": 166,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        242,
-                        243
-                      ],
+                      "overloadedDeclarations": [242, 243],
                       "referencedDeclaration": 242,
                       "src": "1664:7:0",
                       "typeDescriptions": {
@@ -2709,9 +2679,7 @@
                   "src": "1664:22:0"
                 },
                 {
-                  "assignments": [
-                    174
-                  ],
+                  "assignments": [174],
                   "declarations": [
                     {
                       "constant": false,
@@ -2787,9 +2755,7 @@
                   "src": "1721:39:0"
                 },
                 {
-                  "assignments": [
-                    180
-                  ],
+                  "assignments": [180],
                   "declarations": [
                     {
                       "constant": false,
@@ -3461,20 +3427,13 @@
     "attributes": {
       "absolutePath": "project:/src/contracts/DcentraFunding.sol",
       "exportedSymbols": {
-        "DcentraFunding": [
-          224
-        ]
+        "DcentraFunding": [224]
       }
     },
     "children": [
       {
         "attributes": {
-          "literals": [
-            "solidity",
-            "^",
-            "0.5",
-            ".16"
-          ]
+          "literals": ["solidity", "^", "0.5", ".16"]
         },
         "id": 1,
         "name": "PragmaDirective",
@@ -3482,18 +3441,12 @@
       },
       {
         "attributes": {
-          "baseContracts": [
-            null
-          ],
-          "contractDependencies": [
-            null
-          ],
+          "baseContracts": [null],
+          "contractDependencies": [null],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
-          "linearizedBaseContracts": [
-            224
-          ],
+          "linearizedBaseContracts": [224],
           "name": "DcentraFunding",
           "scope": 225
         },
@@ -4329,9 +4282,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "createProject",
               "scope": 224,
               "stateMutability": "nonpayable",
@@ -4452,9 +4403,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 74,
@@ -4473,9 +4422,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -4488,10 +4435,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                242,
-                                243
-                              ],
+                              "overloadedDeclarations": [242, 243],
                               "referencedDeclaration": 242,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -4535,9 +4479,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -4564,9 +4506,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 66,
                                           "type": "string memory",
                                           "value": "_title"
@@ -4627,9 +4567,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -4642,10 +4580,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                242,
-                                243
-                              ],
+                              "overloadedDeclarations": [242, 243],
                               "referencedDeclaration": 242,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -4689,9 +4624,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -4718,9 +4651,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 68,
                                           "type": "string memory",
                                           "value": "_desc"
@@ -4781,9 +4712,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -4796,10 +4725,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                242,
-                                243
-                              ],
+                              "overloadedDeclarations": [242, 243],
                               "referencedDeclaration": 242,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -4843,9 +4769,7 @@
                                       "isPure": false,
                                       "isStructConstructorCall": false,
                                       "lValueRequested": false,
-                                      "names": [
-                                        null
-                                      ],
+                                      "names": [null],
                                       "type": "bytes memory",
                                       "type_conversion": true
                                     },
@@ -4872,9 +4796,7 @@
                                       {
                                         "attributes": {
                                           "argumentTypes": null,
-                                          "overloadedDeclarations": [
-                                            null
-                                          ],
+                                          "overloadedDeclarations": [null],
                                           "referencedDeclaration": 72,
                                           "type": "string memory",
                                           "value": "_imageHash"
@@ -4935,9 +4857,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -4950,10 +4870,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                242,
-                                243
-                              ],
+                              "overloadedDeclarations": [242, 243],
                               "referencedDeclaration": 242,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -4980,9 +4897,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 70,
                                   "type": "uint256",
                                   "value": "_goal"
@@ -5033,9 +4948,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -5048,10 +4961,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                242,
-                                243
-                              ],
+                              "overloadedDeclarations": [242, 243],
                               "referencedDeclaration": 242,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -5090,9 +5000,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 239,
                                       "type": "msg",
                                       "value": "msg"
@@ -5114,9 +5022,7 @@
                                   "isPure": true,
                                   "isStructConstructorCall": false,
                                   "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
+                                  "names": [null],
                                   "type": "address payable",
                                   "type_conversion": true
                                 },
@@ -5203,9 +5109,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 11,
                                   "type": "mapping(uint256 => struct DcentraFunding.Project storage ref)",
                                   "value": "projects"
@@ -5217,9 +5121,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 7,
                                   "type": "uint256",
                                   "value": "projectCount"
@@ -5241,9 +5143,7 @@
                               "isPure": false,
                               "isStructConstructorCall": true,
                               "lValueRequested": false,
-                              "names": [
-                                null
-                              ],
+                              "names": [null],
                               "type": "struct DcentraFunding.Project memory",
                               "type_conversion": false
                             },
@@ -5284,9 +5184,7 @@
                                       "typeString": "address payable"
                                     }
                                   ],
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 28,
                                   "type": "type(struct DcentraFunding.Project storage pointer)",
                                   "value": "Project"
@@ -5298,9 +5196,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 7,
                                   "type": "uint256",
                                   "value": "projectCount"
@@ -5312,9 +5208,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 66,
                                   "type": "string memory",
                                   "value": "_title"
@@ -5326,9 +5220,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 68,
                                   "type": "string memory",
                                   "value": "_desc"
@@ -5340,9 +5232,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 70,
                                   "type": "uint256",
                                   "value": "_goal"
@@ -5383,9 +5273,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 229,
                                       "type": "block",
                                       "value": "block"
@@ -5402,9 +5290,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 72,
                                   "type": "string memory",
                                   "value": "_imageHash"
@@ -5428,9 +5314,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 239,
                                       "type": "msg",
                                       "value": "msg"
@@ -5469,9 +5353,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -5512,9 +5394,7 @@
                                   "typeString": "address payable"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 46,
                               "type": "function (uint256,string memory,string memory,uint256,uint256,uint256,string memory,address payable)",
                               "value": "ProjectCreated"
@@ -5526,9 +5406,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 7,
                               "type": "uint256",
                               "value": "projectCount"
@@ -5540,9 +5418,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 66,
                               "type": "string memory",
                               "value": "_title"
@@ -5554,9 +5430,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 68,
                               "type": "string memory",
                               "value": "_desc"
@@ -5568,9 +5442,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 70,
                               "type": "uint256",
                               "value": "_goal"
@@ -5611,9 +5483,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 229,
                                   "type": "block",
                                   "value": "block"
@@ -5630,9 +5500,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 72,
                               "type": "string memory",
                               "value": "_imageHash"
@@ -5656,9 +5524,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 239,
                                   "type": "msg",
                                   "value": "msg"
@@ -5699,9 +5565,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 7,
                               "type": "uint256",
                               "value": "projectCount"
@@ -5736,9 +5600,7 @@
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
-              "modifiers": [
-                null
-              ],
+              "modifiers": [null],
               "name": "updateReceivedFunds",
               "scope": 224,
               "stateMutability": "payable",
@@ -5781,9 +5643,7 @@
               },
               {
                 "attributes": {
-                  "parameters": [
-                    null
-                  ]
+                  "parameters": [null]
                 },
                 "children": [],
                 "id": 155,
@@ -5802,9 +5662,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -5817,10 +5675,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                242,
-                                243
-                              ],
+                              "overloadedDeclarations": [242, 243],
                               "referencedDeclaration": 242,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -5862,9 +5717,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 153,
                                       "type": "uint256",
                                       "value": "_id"
@@ -5913,9 +5766,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 153,
                                       "type": "uint256",
                                       "value": "_id"
@@ -5927,9 +5778,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 7,
                                       "type": "uint256",
                                       "value": "projectCount"
@@ -5968,9 +5817,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -5983,10 +5830,7 @@
                                   "typeString": "bool"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                242,
-                                243
-                              ],
+                              "overloadedDeclarations": [242, 243],
                               "referencedDeclaration": 242,
                               "type": "function (bool) pure",
                               "value": "require"
@@ -6025,9 +5869,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 239,
                                       "type": "msg",
                                       "value": "msg"
@@ -6075,9 +5917,7 @@
                   },
                   {
                     "attributes": {
-                      "assignments": [
-                        174
-                      ]
+                      "assignments": [174]
                     },
                     "children": [
                       {
@@ -6121,9 +5961,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 11,
                               "type": "mapping(uint256 => struct DcentraFunding.Project storage ref)",
                               "value": "projects"
@@ -6135,9 +5973,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 153,
                               "type": "uint256",
                               "value": "_id"
@@ -6158,9 +5994,7 @@
                   },
                   {
                     "attributes": {
-                      "assignments": [
-                        180
-                      ]
+                      "assignments": [180]
                     },
                     "children": [
                       {
@@ -6205,9 +6039,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 174,
                               "type": "struct DcentraFunding.Project memory",
                               "value": "_project"
@@ -6236,9 +6068,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -6268,9 +6098,7 @@
                                   "isPure": false,
                                   "isStructConstructorCall": false,
                                   "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
+                                  "names": [null],
                                   "type": "address payable",
                                   "type_conversion": true
                                 },
@@ -6297,9 +6125,7 @@
                                   {
                                     "attributes": {
                                       "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
+                                      "overloadedDeclarations": [null],
                                       "referencedDeclaration": 180,
                                       "type": "address payable",
                                       "value": "_creator"
@@ -6333,9 +6159,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 239,
                                   "type": "msg",
                                   "value": "msg"
@@ -6387,9 +6211,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 174,
                                   "type": "struct DcentraFunding.Project memory",
                                   "value": "_project"
@@ -6418,9 +6240,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 239,
                                   "type": "msg",
                                   "value": "msg"
@@ -6470,9 +6290,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 11,
                                   "type": "mapping(uint256 => struct DcentraFunding.Project storage ref)",
                                   "value": "projects"
@@ -6484,9 +6302,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 153,
                                   "type": "uint256",
                                   "value": "_id"
@@ -6503,9 +6319,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 174,
                               "type": "struct DcentraFunding.Project memory",
                               "value": "_project"
@@ -6534,9 +6348,7 @@
                           "isPure": false,
                           "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
+                          "names": [null],
                           "type": "tuple()",
                           "type_conversion": false
                         },
@@ -6577,9 +6389,7 @@
                                   "typeString": "address payable"
                                 }
                               ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 64,
                               "type": "function (uint256,string memory,string memory,uint256,uint256,uint256,string memory,address payable)",
                               "value": "ProjectFunded"
@@ -6591,9 +6401,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 153,
                               "type": "uint256",
                               "value": "_id"
@@ -6617,9 +6425,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 174,
                                   "type": "struct DcentraFunding.Project memory",
                                   "value": "_project"
@@ -6648,9 +6454,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 174,
                                   "type": "struct DcentraFunding.Project memory",
                                   "value": "_project"
@@ -6679,9 +6483,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 174,
                                   "type": "struct DcentraFunding.Project memory",
                                   "value": "_project"
@@ -6710,9 +6512,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 174,
                                   "type": "struct DcentraFunding.Project memory",
                                   "value": "_project"
@@ -6741,9 +6541,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 174,
                                   "type": "struct DcentraFunding.Project memory",
                                   "value": "_project"
@@ -6772,9 +6570,7 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
+                                  "overloadedDeclarations": [null],
                                   "referencedDeclaration": 174,
                                   "type": "struct DcentraFunding.Project memory",
                                   "value": "_project"
@@ -6791,9 +6587,7 @@
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
+                              "overloadedDeclarations": [null],
                               "referencedDeclaration": 180,
                               "type": "address payable",
                               "value": "_creator"

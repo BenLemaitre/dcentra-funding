@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Box, Image } from "@chakra-ui/react";
-import FundButton from "./FundButton";
+import React, { useState, useEffect } from 'react'
+import { Box, Image } from '@chakra-ui/react'
+import FundButton from './fund-button'
 
 const ListItem = ({ project }) => {
-  const [receivedFunds, setReceivedFunds] = useState(0);
+  const [receivedFunds, setReceivedFunds] = useState(0)
 
   useEffect(() => {
     setReceivedFunds(
-      window.web3.utils.fromWei(project.received.toString(), "Ether")
-    );
-  }, [project]);
+      window.web3.utils.fromWei(project.received.toString(), 'Ether')
+    )
+  }, [project])
 
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
@@ -35,14 +35,14 @@ const ListItem = ({ project }) => {
         <Box>{project.description}</Box>
 
         <Box d="flex" mt="2" justifyContent="space-between" alignItems="center">
-          <Box as="span" color="gray.600" fontSize="sm">
+          <Box as="span" fontSize="sm">
             {receivedFunds} / {project.goal} ETH
           </Box>
           <FundButton projectId={project.id} />
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default ListItem;
+export default ListItem
