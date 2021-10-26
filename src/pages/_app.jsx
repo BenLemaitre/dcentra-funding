@@ -24,11 +24,11 @@ const Website = ({ Component, pageProps, router }) => {
     <ChakraProvider theme={theme}>
       <Layout router={router}>
         <AnimatePresence exitBeforeEnter initial={true}>
-          { loading ? (
+          {loading ? (
             <Spinner size="xl" position="absolute" left="50%" top="50%" />
           ) : (
             <Component {...pageProps} key={router.route} />
-          ) }
+          )}
         </AnimatePresence>
       </Layout>
     </ChakraProvider>
