@@ -6,8 +6,7 @@ import {
   Button,
   Text,
   Container,
-  Heading,
-  useBreakpointValue
+  Heading
 } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 

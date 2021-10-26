@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { loadWeb3, getProjects } from '../libs/utils'
+import { useState, useEffect } from 'react'
+import { getProjects } from '../libs/utils'
+import Layout from '../components/layouts/article'
 import ListItem from '../components/list-item'
 
-import { SimpleGrid, Heading } from '@chakra-ui/react'
+import { SimpleGrid, Heading, Container } from '@chakra-ui/react'
 
 const Projects = () => {
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    loadWeb3()
-
     let isCurrent = true
+
     getProjects().then(projects => {
       if (isCurrent) {
         setProjects(projects)
-        console.log(projects)
       }
     })
     return () => {
@@ -23,20 +22,22 @@ const Projects = () => {
   }, [])
 
   return (
-    <div>
-      <Heading textAlign="center" p="10px">
-        Our Users Projects
-      </Heading>
-      <SimpleGrid columns={{ sm: 2, md: 3 }} spacing="40px" p="20px">
-        {projects.map((project, key) => {
-          return project.title !== '' ? (
-            <ListItem project={project} key={key} />
-          ) : (
-            <div style={{ display: 'none' }} />
-          )
-        })}
-      </SimpleGrid>
-    </div>
+    <Layout>
+      <Container>
+        <Heading as="h3" textAlign="center" mb={6}>
+          Projects from our community
+        </Heading>
+        <SimpleGrid columns={[1,2,2]} gap={6}>
+          {projects.map((project, key) => {
+            return project.title !== '' ? (
+              <ListItem project={project} key={key} />
+            ) : (
+              <div style={{ display: 'none' }} />
+            )
+          })}
+        </SimpleGrid>
+      </Container>
+    </Layout>
   )
 }
 

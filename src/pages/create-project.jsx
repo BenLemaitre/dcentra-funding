@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { FiFile } from 'react-icons/fi'
 import {
   Stack,
@@ -84,7 +84,6 @@ const CreateProject = ({ dcentra, account }) => {
   }
 
   return (
-    // <Stack w={'full'} h={'100vh'}>
     <Stack
       rounded={'md'}
       p={{ base: 4, sm: 6, md: 8 }}
