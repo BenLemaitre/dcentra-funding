@@ -1,3 +1,4 @@
+import { useState, useCallback, useRef } from 'react'
 import { FiFile } from 'react-icons/fi'
 import {
   Stack,
@@ -20,26 +21,11 @@ const useFormField = (initialValue = '') => {
 
 const acceptedFileTypes = ['jpg', 'jpeg', 'png']
 
-const Form = () => {
+const Form = ({ handleSubmit, captureFile, filename }) => {
   const titleField = useFormField()
   const descriptionField = useFormField()
   const goalField = useFormField()
   const fileInputRef = useRef()
-  const [buffer, setBuffer] = useState({})
-  const [filename, setFilename] = useState('')
-
-  const captureFile = e => {
-    e.preventDefault()
-
-    const file = e.target.files[0]
-    const reader = new window.FileReader()
-
-    reader.readAsArrayBuffer(file)
-    reader.onloadend = () => {
-      setBuffer(reader.result)
-      setFilename(file.name)
-    }
-  }
 
   return (
     <form onSubmit={handleSubmit}>
