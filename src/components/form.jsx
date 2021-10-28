@@ -28,7 +28,15 @@ const Form = ({ handleSubmit, captureFile, filename }) => {
   const fileInputRef = useRef()
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={e =>
+        handleSubmit(e, {
+          title: titleField.value,
+          desc: descriptionField.value,
+          goal: goalField.value
+        })
+      }
+    >
       <Stack spacing={4}>
         {/* Title */}
         <Input placeholder="Title" required {...titleField} />

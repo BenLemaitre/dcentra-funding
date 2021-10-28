@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { fundProject } from '../libs/utils'
 import {
   Popover,

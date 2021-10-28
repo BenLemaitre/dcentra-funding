@@ -58,24 +58,20 @@ export const fundProject = async (projectId, amount) => {
   }
 }
 
-export const createProject = async (project) => {
+export const createProject = async ({ title, desc, goal, path }) => {
   try {
     const dcentra = await getDcentraContract()
     const accounts = await window.web3.eth.getAccounts()
 
     const hasCreatedProject = await dcentra.methods
-        .createProject(
-          project
-          // titleField.value,
-          // descriptionField.value,
-          // goalField.value,
-          // result.path
-        )
-        .send({ from: accounts[0] })
-        .on('transactionHash', hash => {
-          console.log('project was added')
-          return true
-        })
+      .createProject(title, desc, goal, path)
+      .send({ from: accounts[0] })
+      .on('transactionHash', hash => {
+        console.log('project was added')
+        return true
+      })
+
+    return hasCreatedProject
   } catch (err) {
     console.log(err)
     return false

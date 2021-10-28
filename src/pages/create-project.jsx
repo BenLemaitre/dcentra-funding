@@ -1,11 +1,5 @@
-import { useState, useCallback, useRef } from 'react'
-import { FiFile } from 'react-icons/fi'
-import {
-  Stack,
-  Heading,
-  Text,
-  useToast
-} from '@chakra-ui/react'
+import { useState } from 'react'
+import { Stack, Heading, Text, useToast } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Form from '../components/form'
 import { createProject } from '../libs/utils'
@@ -17,7 +11,7 @@ const ipfs = ipfsClient({
   protocol: 'https'
 })
 
-const CreateProject = ({ dcentra, account }) => {
+const CreateProject = () => {
   const [buffer, setBuffer] = useState({})
   const [filename, setFilename] = useState('')
 
@@ -36,35 +30,14 @@ const CreateProject = ({ dcentra, account }) => {
     }
   }
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e, project) => {
     e.preventDefault()
-    // console.log(titleField.value, descriptionField.value, goalField.value)
-    // try {
-    //   const result = await ipfs.add(buffer)
-    //   console.log(result)
 
-    //   dcentra.methods
-    //     .createProject(
-    //       titleField.value,
-    //       descriptionField.value,
-    //       goalField.value,
-    //       result.path
-    //     )
-    //     .send({ from: account })
-    //     .on('transactionHash', hash => {
-    //       console.log('project was added')
-    //       toast({
-    //         title: 'Congratulations!',
-    //         description: 'Your project was successfully created!',
-    //         status: 'success',
-    //         duration: 5000,
-    //         isClosable: true
-    //       })
-    //     })
-    // } catch (error) {
-    //   console.error(error)
-    // }
-    const hasCreatedProject = await createProject()
+    const ipfsResult = await ipfs.add(buffer)
+    const hasCreatedProject = await createProject({
+      ...project,
+      path: ipfsResult.path
+    })
 
     if (hasCreatedProject) {
       toast({
@@ -109,7 +82,11 @@ const CreateProject = ({ dcentra, account }) => {
             Tell us more about your amazing project! We will help you get it
             funded!
           </Text>
-          <Form handleSubmit={handleSubmit} captureFile={captureFile} filename={filename} />
+          <Form
+            handleSubmit={handleSubmit}
+            captureFile={captureFile}
+            filename={filename}
+          />
         </Stack>
       </Stack>
     </Layout>
