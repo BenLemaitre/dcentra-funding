@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Box, Image } from '@chakra-ui/react'
+import { useState, useEffect } from 'react'
+import { Box, Image, Heading } from '@chakra-ui/react'
 import FundButton from './fund-button'
 
 const ListItem = ({ project }) => {
@@ -12,35 +12,23 @@ const ListItem = ({ project }) => {
   }, [project])
 
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+    <Box h="350px" borderWidth="1px" borderRadius="lg" overflow="hidden" d="flex" flexDir="column">
       <Image
         src={`https://ipfs.infura.io/ipfs/${project.imageHash}`}
         alt="Project image"
+        objectFit="cover"
+        h="175px"
       />
-
-      <Box p="6">
-        {/* <Badge borderRadius="full" px="2" colorScheme="green">
-          New
-        </Badge> */}
-        <Box
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
-          {project.title}
-        </Box>
-
-        <Box>{project.description}</Box>
-
-        <Box d="flex" mt="2" justifyContent="space-between" alignItems="center">
+        <Box m={2}>
+          <Heading as="h4" size="sm" lineHeight="tight">{project.title}</Heading>
+          <p>{project.description}</p>
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box as="span" fontSize="sm">
             {receivedFunds} / {project.goal} ETH
           </Box>
-          <FundButton projectId={project.id} />
+            <FundButton projectId={project.id} />
+       </Box>
         </Box>
-      </Box>
     </Box>
   )
 }

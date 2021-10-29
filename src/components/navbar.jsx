@@ -1,22 +1,42 @@
 import Logo from './logo'
-
-import { Box, Flex, Button, Stack, Container } from '@chakra-ui/react'
+import NextLink from 'next/link'
+import { Box, Container, Button } from '@chakra-ui/react'
+import { SearchIcon } from "@chakra-ui/icons"
 import ThemeToggleButton from './theme-toggle-button'
 
-const Navbar = ({ account }) => {
+const NavItem = ({href, path, children}) => {
   return (
-    <Box as="nav" minH={'60px'} w="100%" borderBottom={1} borderStyle={'solid'}>
+    <NextLink href={href} passHref>
+      <Button size="sm" variant="unstyled" p={2}>
+        {children}
+      </Button>
+    </NextLink>
+  )
+}
+
+const Navbar = ({ path }) => {
+  return (
+    <Box as="nav" minH={'55px'} w="100%" borderBottom={1} borderStyle={'solid'}>
       <Container
-        display="flex"
+        d="flex"
         p={2}
         maxW="container.lg.md"
-        align="center"
-        justify="space-between"
       >
-        <Flex align="center" mr={5}>
+        <Box align="left" flex={1}>
+          <Button size="sm" mx={2} variant="outline" leftIcon={<SearchIcon/>}>
+            Search
+          </Button>
+          <NavItem href="/projects" path={path}>
+            Discover
+          </NavItem>
+          <NavItem href="/create-project" path={path}>
+            Start a project
+          </NavItem>
+        </Box>
+        <Box alignSelf="center" align="center" flex={1}>
           <Logo />
-        </Flex>
-        <Box ml={5} align="right" flex={1}>
+        </Box>
+        <Box mx={2} align="right" flex={1}>
           <ThemeToggleButton />
         </Box>
       </Container>
@@ -25,12 +45,3 @@ const Navbar = ({ account }) => {
 }
 
 export default Navbar
-
-/* {account ? (
-  <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'}>
-    {account.substring(0, 6)}...
-    {account.substring(38, 42)}
-  </Button>
-) : (
-  <span />
-)} */

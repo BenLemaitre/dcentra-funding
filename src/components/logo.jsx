@@ -1,16 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styled from '@emotion/styled'
-import { Flex, Text } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 import svgLogo from '../../public/logo.svg'
 
 const LogoBox = styled.span`
   font-weight: bold;
   font-size: 18px;
   display: inline-flex;
-  align-items: center;
-  height: 30px;
-  padding: 10px;
+  align-items: start;
   cursor: pointer;
 
   &:hover img {
@@ -29,7 +27,6 @@ const Logo = () => (
       </LogoBox>
     </a>
   </Link>
-  // </Flex>
 )
 
 export default Logo
