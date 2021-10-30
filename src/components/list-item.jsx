@@ -12,23 +12,32 @@ const ListItem = ({ project }) => {
   }, [project])
 
   return (
-    <Box h="350px" borderWidth="1px" borderRadius="lg" overflow="hidden" d="flex" flexDir="column">
+    <Box
+      h="350px"
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      d="flex"
+      flexDir="column"
+    >
       <Image
         src={`https://ipfs.infura.io/ipfs/${project.imageHash}`}
         alt="Project image"
         objectFit="cover"
         h="175px"
       />
-        <Box m={2}>
-          <Heading as="h4" size="sm" lineHeight="tight">{project.title}</Heading>
-          <p>{project.description}</p>
+      <Box m={2}>
+        <Heading as="h4" size="sm" lineHeight="tight">
+          {project.title}
+        </Heading>
+        <p>{project.description}</p>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box as="span" fontSize="sm">
             {receivedFunds} / {project.goal} ETH
           </Box>
-            <FundButton projectId={project.id} />
-       </Box>
+          <FundButton projectId={project.id} />
         </Box>
+      </Box>
     </Box>
   )
 }
