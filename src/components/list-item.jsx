@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Box, Image, Heading } from '@chakra-ui/react'
-import FundButton from './fund-button'
+import { Box, Image, Heading, Progress, Text, Stack } from '@chakra-ui/react'
 
 const ListItem = ({ project }) => {
   const [receivedFunds, setReceivedFunds] = useState(0)
@@ -15,7 +14,7 @@ const ListItem = ({ project }) => {
     <Box
       h="350px"
       borderWidth="1px"
-      borderRadius="lg"
+      borderRadius="xl"
       overflow="hidden"
       d="flex"
       flexDir="column"
@@ -26,17 +25,28 @@ const ListItem = ({ project }) => {
         objectFit="cover"
         h="175px"
       />
-      <Box m={2}>
-        <Heading as="h4" size="sm" lineHeight="tight">
-          {project.title}
-        </Heading>
-        <p>{project.description}</p>
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box as="span" fontSize="sm">
-            {receivedFunds} / {project.goal} ETH
-          </Box>
-          <FundButton projectId={project.id} />
+      <Box
+        h="100%"
+        m={4}
+        d="flex"
+        justifyContent="space-between"
+        flexDirection="column"
+      >
+        <Box>
+          <Heading as="h4" size="sm" lineHeight="tight" color="teal">
+            {project.title}
+          </Heading>
+          <Text>{project.description}</Text>
         </Box>
+        <Stack spacing={2}>
+          <Progress
+            value={(receivedFunds / project.goal) * 100}
+            colorScheme="teal"
+          />
+          <Text>
+            <b>⟠ {receivedFunds} raised</b> of ⟠ {project.goal}
+          </Text>
+        </Stack>
       </Box>
     </Box>
   )

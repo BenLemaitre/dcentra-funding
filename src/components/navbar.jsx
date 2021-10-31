@@ -50,7 +50,7 @@ const Navbar = ({ path }) => {
         <Box mx={2} align="right" flex={1}>
           <ThemeToggleButton />
           <Box ml={2} display={{ base: 'inline-block', lg: 'none' }}>
-            <Menu isLazy>
+            <Menu isLazy id="navbar-menu">
               <MenuButton
                 as={IconButton}
                 icon={<HamburgerIcon />}
