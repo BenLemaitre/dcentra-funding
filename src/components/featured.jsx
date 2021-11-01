@@ -20,7 +20,7 @@ const Featured = () => {
   }, [])
 
   return (
-    <Stack py={10}>
+    <Stack my={20}>
       <Heading as="h3" size="md">
         Featured
       </Heading>
