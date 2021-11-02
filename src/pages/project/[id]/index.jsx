@@ -5,7 +5,9 @@ import {
   Stack,
   Text,
   Divider,
-  Image
+  Image,
+  Progress,
+  Button
 } from '@chakra-ui/react'
 import Layout from '../../../components/layouts/article'
 
@@ -33,13 +35,17 @@ const Project = () => {
 
   return (
     <Layout title={project.title}>
-      <Container my={8} bg="purple.400" minW="100%">
+      <Container my={8} minW="100%">
         <Heading fontWeight={600} fontSize={{ sm: '2xl', md: '4xl' }}>
           {project.title}
         </Heading>
-        <Stack direction="row" spacing={8}>
+        <Stack direction={{ base: 'column', md: 'row' }} spacing={8}>
           <Stack direction="column">
-            <Image src={project.imageHash} alt="project image" />
+            <Image
+              src={project.imageHash}
+              alt="project image"
+              borderRadius="md"
+            />
             <Divider />
             <Stack direction="row" spacing={4}>
               <Text>{project.creationDate}</Text>
@@ -49,8 +55,25 @@ const Project = () => {
             <Divider />
             <Text>{project.description}</Text>
           </Stack>
-          <Stack direction="column" bg="red" w="100%">
-            <Text>Test</Text>
+          <Stack
+            p={2}
+            spacing={8}
+            direction="column"
+            w="100%"
+            border="1px"
+            borderColor="#353538"
+            borderRadius="md"
+          >
+            <Text>
+              <b>⟠ {project.received} raised</b> of ⟠ {project.goal}
+            </Text>
+            <Progress
+              colorScheme="teal"
+              value={(project.received / project.goal) * 100}
+            />
+            <Button colorScheme="yellow">Share</Button>
+            <Button colorScheme="yellow">Donate</Button>
+            <Text>{project.donators.length} Donators so far!</Text>
           </Stack>
         </Stack>
       </Container>
