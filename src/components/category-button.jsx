@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { Stack, Box, Text } from '@chakra-ui/react'
+import { Stack, Text } from '@chakra-ui/react'
 
 const CategoryButton = ({ href, label, children }) => (
   <NextLink href={href} passHref>

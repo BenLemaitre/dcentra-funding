@@ -1,3 +1,4 @@
+import NextLink from 'next/link'
 import { useState, useEffect } from 'react'
 import { Box, Image, Heading, Progress, Text, Stack } from '@chakra-ui/react'
 
@@ -11,44 +12,47 @@ const ListItem = ({ project }) => {
   }, [project])
 
   return (
-    <Box
-      h="350px"
-      borderWidth="1px"
-      borderRadius="xl"
-      overflow="hidden"
-      d="flex"
-      flexDir="column"
-    >
-      <Image
-        src={`https://ipfs.infura.io/ipfs/${project.imageHash}`}
-        alt="Project image"
-        objectFit="cover"
-        h="175px"
-      />
+    <NextLink href={`/project/${project.id}`}>
       <Box
-        h="100%"
-        m={4}
+        h="350px"
+        borderWidth="1px"
+        borderRadius="xl"
+        overflow="hidden"
         d="flex"
-        justifyContent="space-between"
-        flexDirection="column"
+        flexDir="column"
+        cursor="pointer"
       >
-        <Box>
-          <Heading as="h4" size="sm" lineHeight="tight" color="teal">
-            {project.title}
-          </Heading>
-          <Text>{project.description}</Text>
+        <Image
+          src={`https://ipfs.infura.io/ipfs/${project.imageHash}`}
+          alt="Project image"
+          objectFit="cover"
+          h="175px"
+        />
+        <Box
+          h="100%"
+          m={4}
+          d="flex"
+          justifyContent="space-between"
+          flexDirection="column"
+        >
+          <Box>
+            <Heading as="h4" size="sm" lineHeight="tight" color="teal">
+              {project.title}
+            </Heading>
+            <Text>{project.description}</Text>
+          </Box>
+          <Stack spacing={2}>
+            <Progress
+              value={(receivedFunds / project.goal) * 100}
+              colorScheme="teal"
+            />
+            <Text>
+              <b>⟠ {receivedFunds} raised</b> of ⟠ {project.goal}
+            </Text>
+          </Stack>
         </Box>
-        <Stack spacing={2}>
-          <Progress
-            value={(receivedFunds / project.goal) * 100}
-            colorScheme="teal"
-          />
-          <Text>
-            <b>⟠ {receivedFunds} raised</b> of ⟠ {project.goal}
-          </Text>
-        </Stack>
       </Box>
-    </Box>
+    </NextLink>
   )
 }
 

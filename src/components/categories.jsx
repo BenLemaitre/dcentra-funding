@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Stack, Heading, SimpleGrid, Button } from '@chakra-ui/react'
+import { Stack, Heading, SimpleGrid } from '@chakra-ui/react'
 import CategoryButton from './category-button'
 
 // category icons
@@ -12,7 +12,7 @@ import animalsPng from '../../public/categories/pawprint.png'
 
 const Categories = () => (
   <Stack my={20} p={4} bg="#291b12" borderRadius="xl">
-    <Heading as="h3" size="md">
+    <Heading as="h3" size="md" alignSelf="center">
       Fundraise for...
     </Heading>
     <SimpleGrid pt={2} columns={[2, 3, 3]} gap={8}>
