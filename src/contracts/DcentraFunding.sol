@@ -13,6 +13,7 @@ contract DcentraFunding {
         uint received;
         uint date;
         string imageHash;
+        string category;
         address payable creator;
     }
 
@@ -24,6 +25,7 @@ contract DcentraFunding {
         uint received,
         uint date,
         string imageHash,
+        string category,
         address payable creator
     );
 
@@ -35,19 +37,31 @@ contract DcentraFunding {
         uint received,
         uint date,
         string imageHash,
+        string category,
         address payable creator
     );
 
-    function createProject (string memory _title, string memory _desc, uint _goal, string memory _imageHash) public {
+    function createProject (string memory _title, string memory _desc, uint _goal, string memory _imageHash, string memory _category) public {
         // Make sure data sent is complete
         require(bytes(_title).length > 0);
         require(bytes(_desc).length > 0);
         require(bytes(_imageHash).length > 0);
+        require(bytes(_category).length > 0);
         require(_goal > 0);
         require(msg.sender != address(0));
 
-        projects[projectCount] = Project(projectCount, _title, _desc, _goal, 0, block.timestamp, _imageHash, msg.sender);
-        emit ProjectCreated(projectCount, _title, _desc, _goal, 0, block.timestamp, _imageHash, msg.sender);
+        projects[projectCount] = Project(projectCount, _title, _desc, _goal, 0, block.timestamp, _imageHash, _category,msg.sender);
+        emit ProjectCreated(
+            projectCount,
+            _title,
+            _desc,
+            _goal,
+            0,
+            block.timestamp,
+            _imageHash,
+            _category,
+            msg.sender
+        );
         
         projectCount++;
     }
@@ -68,6 +82,16 @@ contract DcentraFunding {
         // update project
         projects[_id] = _project;
         // trigger event
-        emit ProjectFunded(_id, _project.title, _project.description, _project.goal, _project.received, _project.date, _project.imageHash, _creator);
+        emit ProjectFunded(
+            _id, 
+            _project.title,
+            _project.description,
+            _project.goal,
+            _project.received,
+            _project.date,
+            _project.imageHash,
+            _project.category,
+            _creator
+        );
     }
 }

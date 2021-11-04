@@ -39,6 +39,13 @@ export const getProjects = async () => {
   return projects
 }
 
+export const getProject = async id => {
+  const dcentra = await getDcentraContract()
+  const project = await dcentra.methods.projects(id).call()
+
+  return project
+}
+
 export const fundProject = async (projectId, amount) => {
   try {
     const dcentra = await getDcentraContract()

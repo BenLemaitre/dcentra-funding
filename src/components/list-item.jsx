@@ -36,7 +36,7 @@ const ListItem = ({ project }) => {
           flexDirection="column"
         >
           <Box>
-            <Heading as="h4" size="sm" lineHeight="tight" color="teal">
+            <Heading as="h3" size="sm" lineHeight="tight" color="teal">
               {project.title}
             </Heading>
             <Text>{project.description}</Text>

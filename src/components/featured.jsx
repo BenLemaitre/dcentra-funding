@@ -21,7 +21,7 @@ const Featured = () => {
 
   return (
     <Stack my={20}>
-      <Heading as="h3" size="md">
+      <Heading as="h2" size="md">
         Featured
       </Heading>
       <SimpleGrid columns={[1, 2, 2]} gap={10}>
