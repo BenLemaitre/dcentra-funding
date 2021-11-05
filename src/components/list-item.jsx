@@ -21,6 +21,7 @@ const ListItem = ({ project }) => {
         d="flex"
         flexDir="column"
         cursor="pointer"
+        boxShadow="lg"
       >
         <Image
           src={`https://ipfs.infura.io/ipfs/${project.imageHash}`}

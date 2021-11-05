@@ -4,25 +4,12 @@ import { mode } from '@chakra-ui/theme-tools'
 const styles = {
   global: props => ({
     body: {
-      bg: mode('#f0e7db', '#202023')(props)
+      bg: mode('#fbfcfa', '#202023')(props)
     }
   })
 }
 
 const components = {
-  Heading: {
-    variants: {
-      'section-title': {
-        TextDecoration: 'underline',
-        fontSize: 20,
-        textUnderlineOffset: 6,
-        TextDecorationColor: '#525252',
-        TextDecorationThickness: 4,
-        marginTop: 3,
-        marginBottom: 4
-      }
-    }
-  },
   Link: {
     baseStyle: props => ({
       color: mode('#3d7aed', '#ff63c3')(props),
