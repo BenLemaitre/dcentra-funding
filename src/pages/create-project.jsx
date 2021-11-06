@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { Stack, Heading, Text, useToast } from '@chakra-ui/react'
+import {
+  Container,
+  Stack,
+  Heading,
+  Text,
+  useToast,
+  useColorModeValue
+} from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Form from '../components/form'
 import { createProject } from '../libs/utils'
@@ -60,35 +67,37 @@ const CreateProject = () => {
 
   return (
     <Layout title="Create a project">
-      <Stack
-        rounded={'md'}
-        p={{ base: 4, sm: 6, md: 8 }}
-        mt="50px"
-        alignSelf="center"
-        spacing={{ base: 8 }}
-        bg={'blackAlpha.300'}
-      >
-        <Stack spacing={4}>
-          <Heading
-            lineHeight={1.1}
-            fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
-          >
-            Start your project
-            <Text as={'span'} bgClip="text" color="teal">
-              !
+      <Container>
+        <Stack
+          rounded={'md'}
+          p={{ base: 4, sm: 6, md: 8 }}
+          mt="50px"
+          alignSelf="center"
+          spacing={{ base: 8 }}
+          bg={useColorModeValue('#fbf8f6', '#291b12')}
+        >
+          <Stack spacing={4}>
+            <Heading
+              lineHeight={1.1}
+              fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
+            >
+              Start your project
+              <Text as={'span'} bgClip="text" color="teal">
+                !
+              </Text>
+            </Heading>
+            <Text fontSize={{ base: 'sm', sm: 'md' }}>
+              Tell us more about your amazing project! We will help you get it
+              funded!
             </Text>
-          </Heading>
-          <Text fontSize={{ base: 'sm', sm: 'md' }}>
-            Tell us more about your amazing project! We will help you get it
-            funded!
-          </Text>
-          <Form
-            handleSubmit={handleSubmit}
-            captureFile={captureFile}
-            filename={filename}
-          />
+            <Form
+              handleSubmit={handleSubmit}
+              captureFile={captureFile}
+              filename={filename}
+            />
+          </Stack>
         </Stack>
-      </Stack>
+      </Container>
     </Layout>
   )
 }

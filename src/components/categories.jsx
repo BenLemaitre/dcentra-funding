@@ -11,7 +11,12 @@ import educationPng from '../../public/categories/mortarboard.png'
 import animalsPng from '../../public/categories/pawprint.png'
 
 const Categories = () => (
-  <Stack my={20} p={4} bg={useColorModeValue("#fbf8f6", "#291b12")} borderRadius="xl">
+  <Stack
+    my={20}
+    p={4}
+    bg={useColorModeValue('#fbf8f6', '#291b12')}
+    borderRadius="xl"
+  >
     <Heading as="h2" size="md" alignSelf="center">
       Fundraise for...
     </Heading>

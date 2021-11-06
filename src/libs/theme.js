@@ -18,24 +18,19 @@ const components = {
   }
 }
 
-// const fonts = {
-//   heading: "'M PLUS Rounded 1c'"
-// }
-
 const colors = {
   glassTeal: '#88ccca'
 }
 
 const config = {
   initialColorMode: 'dark',
-  useSystemColorMode: false // temp
+  useSystemColorMode: true
 }
 
 const theme = extendTheme({
   config,
   styles,
   components,
-  // fonts,
   colors
 })
 

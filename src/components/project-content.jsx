@@ -19,7 +19,7 @@ const ProjectContent = ({ project }) => {
       <Divider />
       <Stack direction="row" spacing={4}>
         <Text>{creationDate}</Text>
-        <Divider orientation="vertical" height={4} />
+        <Divider orientation="vertical" height={5} />
         <Text>{project.category}</Text>
       </Stack>
       <Divider />

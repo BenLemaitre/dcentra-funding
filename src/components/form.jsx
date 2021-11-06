@@ -90,6 +90,7 @@ const Form = ({ handleSubmit, captureFile, filename }) => {
         fontFamily={'heading'}
         mt={8}
         w={'full'}
+        colorScheme="whatsapp"
         boxShadow="lg"
       >
         Submit

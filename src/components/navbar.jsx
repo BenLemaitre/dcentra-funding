@@ -31,7 +31,13 @@ const NavItem = ({ href, path, children }) => {
 
 const Navbar = ({ path }) => {
   return (
-    <Box as="nav" minH={'55px'} w="100%" borderBottom={1} borderStyle={'solid'}>
+    <Box
+      as="nav"
+      minH={'55px'}
+      w="100%"
+      borderBottomWidth={1}
+      borderStyle="solid"
+    >
       <Container d="flex" p={2} maxW="container.lg.md">
         <Box align="left" flex={1}>
           <Button size="sm" mx={2} variant="outline" leftIcon={<SearchIcon />}>

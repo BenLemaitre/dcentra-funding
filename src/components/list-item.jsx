@@ -1,6 +1,14 @@
 import NextLink from 'next/link'
 import { useState, useEffect } from 'react'
-import { Box, Image, Heading, Progress, Text, Stack } from '@chakra-ui/react'
+import {
+  Box,
+  Image,
+  Heading,
+  Progress,
+  Text,
+  Stack,
+  useColorModeValue
+} from '@chakra-ui/react'
 
 const ListItem = ({ project }) => {
   const [receivedFunds, setReceivedFunds] = useState(0)
@@ -37,7 +45,7 @@ const ListItem = ({ project }) => {
           flexDirection="column"
         >
           <Box>
-            <Heading as="h3" size="sm" lineHeight="tight" color="teal">
+            <Heading as="h3" size="sm" lineHeight="tight" color="whatsapp.600">
               {project.title}
             </Heading>
             <Text>{project.description}</Text>
@@ -45,7 +53,9 @@ const ListItem = ({ project }) => {
           <Stack spacing={2}>
             <Progress
               value={(receivedFunds / project.goal) * 100}
-              colorScheme="teal"
+              colorScheme="whatsapp"
+              bg={useColorModeValue('blackAlpha.300', 'whiteAlpha.300')}
+              borderRadius="md"
             />
             <Text>
               <b>⟠ {receivedFunds} raised</b> of ⟠ {project.goal}
