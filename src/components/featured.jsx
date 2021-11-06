@@ -9,7 +9,7 @@ const Featured = () => {
   useEffect(() => {
     let isCurrent = true
 
-    getProjects().then(projects => {
+    getProjects(2).then(projects => {
       if (isCurrent) {
         setProjects(projects)
       }
@@ -25,13 +25,9 @@ const Featured = () => {
         Featured
       </Heading>
       <SimpleGrid columns={[1, 2, 2]} gap={10}>
-        {projects.map((project, key) => {
-          return project.title !== '' ? (
-            <ListItem project={project} key={key} />
-          ) : (
-            <div style={{ display: 'none' }} />
-          )
-        })}
+        {projects.map((project, key) => (
+          <ListItem project={project} key={key} />
+        ))}
       </SimpleGrid>
     </Stack>
   )
