@@ -1,3 +1,4 @@
+import NextLink from 'next/link'
 import {
   Stack,
   Text,
@@ -28,9 +29,11 @@ const ProjectSidebar = ({ id, received, goal }) => {
       <Button leftIcon={<FaShareSquare />} colorScheme="yellow">
         Share
       </Button>
-      <Button leftIcon={<FaHandHoldingHeart />} colorScheme="yellow">
-        Donate
-      </Button>
+      <NextLink href={`/project/${id}/donate`}>
+        <Button leftIcon={<FaHandHoldingHeart />} colorScheme="yellow">
+          Donate
+        </Button>
+      </NextLink>
       {/* <Text>{project.donators.length} Donators so far!</Text> */}
     </Stack>
   )

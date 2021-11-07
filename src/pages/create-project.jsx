@@ -71,7 +71,7 @@ const CreateProject = () => {
         <Stack
           rounded={'md'}
           p={{ base: 4, sm: 6, md: 8 }}
-          mt="50px"
+          mt={8}
           alignSelf="center"
           spacing={{ base: 8 }}
           bg={useColorModeValue('#fbf8f6', '#291b12')}

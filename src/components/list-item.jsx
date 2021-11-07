@@ -1,6 +1,5 @@
 import NextLink from 'next/link'
 import { useState, useEffect } from 'react'
-import styled from '@emotion/styled'
 import {
   Box,
   Image,
@@ -10,15 +9,6 @@ import {
   Stack,
   useColorModeValue
 } from '@chakra-ui/react'
-
-const ItemText = styled(Text)`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-`
 
 const ListItem = ({ project }) => {
   const [receivedFunds, setReceivedFunds] = useState(0)
@@ -58,7 +48,9 @@ const ListItem = ({ project }) => {
             <Heading as="h3" size="sm" lineHeight="tight" color="whatsapp.600">
               {project.title}
             </Heading>
-            <ItemText my={2}>{project.description}</ItemText>
+            <Text noOfLines={4} my={2}>
+              {project.description}
+            </Text>
           </Box>
           <Stack spacing={2}>
             <Progress

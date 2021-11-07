@@ -26,12 +26,14 @@ export const getDcentraContract = async () => {
   }
 }
 
-export const getProjects = async (numOfProjectsToGet) => {
+export const getProjects = async numOfProjectsToGet => {
   const dcentra = await getDcentraContract()
   let projects = []
 
-  const count = !numOfProjectsToGet ? await dcentra.methods.projectCount().call() : numOfProjectsToGet 
-  
+  const count = !numOfProjectsToGet
+    ? await dcentra.methods.projectCount().call()
+    : numOfProjectsToGet
+
   for (let i = 0; i < count; i++) {
     const project = await dcentra.methods.projects(i).call()
     if (project.title) {
