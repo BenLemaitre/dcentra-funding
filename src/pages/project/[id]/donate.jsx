@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { fundProject } from '../../../libs/utils'
 import {
   Container,
   Divider,
@@ -10,7 +11,8 @@ import {
   Stack,
   useColorModeValue,
   NumberInput,
-  NumberInputField
+  NumberInputField,
+  useToast
 } from '@chakra-ui/react'
 import Layout from '../../../components/layouts/article'
 
@@ -18,6 +20,32 @@ const Donate = () => {
   const router = useRouter()
   const { id } = router.query
   const [donation, setDonation] = useState(0)
+  const toast = useToast()
+
+  const onSubmitTransfer = async () => {
+    const amountInWei = window.web3.utils.toWei(donation, 'Ether')
+    const hasFundedProject = await fundProject(id, amountInWei)
+    
+    if (hasFundedProject) {
+      toast({
+        title: 'Thanks!',
+        description: "You've successfully funded a project!",
+        status: 'success',
+        duration: 5000,
+        isClosable: true
+      })
+
+      return
+    }
+
+    toast({
+      title: 'Sorry!',
+      description: 'An error has occured!',
+      status: 'error',
+      duration: 5000,
+      isClosable: true
+    })
+  }
 
   const handleChange = e => {
     setDonation(e.target.value)
@@ -53,7 +81,7 @@ const Donate = () => {
           <Box>
             <Divider />
           </Box>
-          <Button colorScheme="whatsapp">Submit</Button>
+          <Button colorScheme="whatsapp" onClick={onSubmitTransfer}>Submit</Button>
         </Stack>
       </Container>
     </Layout>
