@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { fundProject } from '../../../libs/utils'
+import { fundProject, getProject } from '../../../libs/utils'
 import {
   Container,
   Divider,
@@ -19,13 +19,36 @@ import Layout from '../../../components/layouts/article'
 const Donate = () => {
   const router = useRouter()
   const { id } = router.query
+  const [project, setProject] = useState({})
+  const [formattedCreatorAddress, setFormattedCreatorAddress] = useState('')
   const [donation, setDonation] = useState(0)
   const toast = useToast()
+
+  // will need to refactor to avoid useless data fetching
+  useEffect(() => {
+    let isCurrent = true
+
+    getProject(id).then(project => {
+      if (isCurrent) {
+        setProject(project)
+        setFormattedCreatorAddress(
+          `${project.creator.substring(0, 6)}...${project.creator.substring(
+            38,
+            42
+          )}`
+        )
+      }
+    })
+
+    return () => {
+      isCurrent = false
+    }
+  }, [])
 
   const onSubmitTransfer = async () => {
     const amountInWei = window.web3.utils.toWei(donation, 'Ether')
     const hasFundedProject = await fundProject(id, amountInWei)
-    
+
     if (hasFundedProject) {
       toast({
         title: 'Thanks!',
@@ -66,11 +89,11 @@ const Donate = () => {
             lineHeight={1.1}
             fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
           >
-            Donate {id}
+            Your donation
           </Heading>
           <Box>
-            <Text fontWeight="bold">Thanks for supporting Project...</Text>
-            <Text>Your donations will benefit .....</Text>
+            <Text fontWeight="bold">Thanks for supporting {project.title}</Text>
+            <Text>Your donations will benefit {formattedCreatorAddress}</Text>
           </Box>
           <Box>
             <Text fontWeight="bold">Enter your donation (in ETH)</Text>
@@ -81,7 +104,9 @@ const Donate = () => {
           <Box>
             <Divider />
           </Box>
-          <Button colorScheme="whatsapp" onClick={onSubmitTransfer}>Submit</Button>
+          <Button colorScheme="whatsapp" onClick={onSubmitTransfer}>
+            Submit
+          </Button>
         </Stack>
       </Container>
     </Layout>
