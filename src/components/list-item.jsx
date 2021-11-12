@@ -22,7 +22,7 @@ const ListItem = ({ project }) => {
   return (
     <NextLink href={`/project/${project.id}`}>
       <Box
-        h="350px"
+        h="375px"
         borderWidth="1px"
         borderRadius="xl"
         overflow="hidden"
@@ -48,7 +48,7 @@ const ListItem = ({ project }) => {
             <Heading as="h3" size="sm" lineHeight="tight" color="whatsapp.600">
               {project.title}
             </Heading>
-            <Text noOfLines={4} my={2}>
+            <Text noOfLines={3} my={2}>
               {project.description}
             </Text>
           </Box>

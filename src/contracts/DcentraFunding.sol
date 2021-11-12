@@ -67,6 +67,8 @@ contract DcentraFunding {
     }
 
     function updateReceivedFunds (uint _id) public payable {
+        // Todo: Validate category
+        
         // make sure id is valid
         require(_id >= 0 && _id < projectCount);
         // make sure funds are higher than 0

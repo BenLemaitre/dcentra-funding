@@ -27,9 +27,16 @@ contract('DcentraFunding', ([deployer, creator, funder]) => {
     const hash = '123456'
 
     before(async () => {
-      result = await dcentra.createProject('The title', 'The desc', 200, hash, {
-        from: creator
-      })
+      result = await dcentra.createProject(
+        'The title',
+        'The desc',
+        200,
+        hash,
+        'education',
+        {
+          from: creator
+        }
+      )
       projectCount = (await dcentra.projectCount()) - 1
     })
 
@@ -43,21 +50,34 @@ contract('DcentraFunding', ([deployer, creator, funder]) => {
       assert.equal(event.description, 'The desc', 'project is correct')
       assert.equal(event.goal, 200, 'goal is correct')
       assert.equal(event.received, 0, 'received is correct')
+      assert.equal(event.category, 'education', 'category is correct')
       assert.equal(event.creator, creator, 'creator is correct')
 
       // failure
       // must have title
-      await dcentra.createProject('', 'The desc', 200, hash, {
+      await dcentra.createProject('', 'The desc', 200, hash, 'education', {
         from: creator
       }).should.be.rejected
 
       // must have desc
-      await dcentra.createProject('The title', '', 200, hash, {
+      await dcentra.createProject('The title', '', 200, hash, 'education', {
         from: creator
       }).should.be.rejected
 
       // must have goal
-      await dcentra.createProject('The title', 'The desc', 0, hash, {
+      await dcentra.createProject(
+        'The title',
+        'The desc',
+        0,
+        hash,
+        'education',
+        {
+          from: creator
+        }
+      ).should.be.rejected
+
+      // must have category
+      await dcentra.createProject('The title', 'The desc', 0, hash, '', {
         from: creator
       }).should.be.rejected
     })

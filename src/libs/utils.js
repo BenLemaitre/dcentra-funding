@@ -70,13 +70,13 @@ export const fundProject = async (projectId, amount) => {
   }
 }
 
-export const createProject = async ({ title, desc, goal, path }) => {
+export const createProject = async ({ title, desc, goal, path, category }) => {
   try {
     const dcentra = await getDcentraContract()
     const accounts = await window.web3.eth.getAccounts()
 
     const hasCreatedProject = await dcentra.methods
-      .createProject(title, desc, goal, path)
+      .createProject(title, desc, goal, path, category)
       .send({ from: accounts[0] })
       .on('transactionHash', hash => {
         console.log('project was added')

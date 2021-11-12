@@ -14,6 +14,7 @@ const Projects = () => {
     getProjects().then(projects => {
       if (isCurrent) {
         setProjects(projects)
+        console.log(projects)
       }
     })
     return () => {

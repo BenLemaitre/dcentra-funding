@@ -10,7 +10,8 @@ import {
   Button,
   Textarea,
   NumberInput,
-  NumberInputField
+  NumberInputField,
+  Select
 } from '@chakra-ui/react'
 
 const useFormField = (initialValue = '') => {
@@ -20,11 +21,20 @@ const useFormField = (initialValue = '') => {
 }
 
 const acceptedFileTypes = ['jpg', 'jpeg', 'png']
+const categories = [
+  'education',
+  'medical',
+  'memorial',
+  'emergency',
+  'non-profit',
+  'animals'
+]
 
 const Form = ({ handleSubmit, captureFile, filename }) => {
   const titleField = useFormField()
   const descriptionField = useFormField()
   const goalField = useFormField()
+  const categoryField = useFormField()
   const fileInputRef = useRef()
 
   return (
@@ -33,6 +43,7 @@ const Form = ({ handleSubmit, captureFile, filename }) => {
         handleSubmit(e, {
           title: titleField.value,
           desc: descriptionField.value,
+          category: categoryField.value,
           goal: goalField.value
         })
       }
@@ -60,6 +71,14 @@ const Form = ({ handleSubmit, captureFile, filename }) => {
             <NumberInputField required {...goalField} />
           </NumberInput>
         </Stack>
+        {/* Category */}
+        <Select {...categoryField}>
+          {categories.map((category, key) => (
+            <option key={key} value={category}>
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </option>
+          ))}
+        </Select>
         {/* Upload button */}
         <InputGroup>
           <InputLeftElement
