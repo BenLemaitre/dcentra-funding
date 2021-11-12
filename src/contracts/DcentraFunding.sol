@@ -42,6 +42,8 @@ contract DcentraFunding {
     );
 
     function createProject (string memory _title, string memory _desc, uint _goal, string memory _imageHash, string memory _category) public {
+        // Todo: Validate category
+
         // Make sure data sent is complete
         require(bytes(_title).length > 0);
         require(bytes(_desc).length > 0);
@@ -67,8 +69,6 @@ contract DcentraFunding {
     }
 
     function updateReceivedFunds (uint _id) public payable {
-        // Todo: Validate category
-        
         // make sure id is valid
         require(_id >= 0 && _id < projectCount);
         // make sure funds are higher than 0

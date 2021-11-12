@@ -26,17 +26,36 @@ export const getDcentraContract = async () => {
   }
 }
 
-export const getProjects = async numOfProjectsToGet => {
+export const getProjects = async category => {
   const dcentra = await getDcentraContract()
+  const count = await dcentra.methods.projectCount().call()
   let projects = []
-
-  const count = !numOfProjectsToGet
-    ? await dcentra.methods.projectCount().call()
-    : numOfProjectsToGet
 
   for (let i = 0; i < count; i++) {
     const project = await dcentra.methods.projects(i).call()
     if (project.title) {
+      projects = [...projects, project]
+    }
+  }
+
+  if (category) {
+    projects = projects.filter(project => project.category === category)
+  }
+
+  return projects
+}
+
+export const getFeaturedProjects = async () => {
+  const dcentra = await getDcentraContract()
+  const count = await dcentra.methods.projectCount().call()
+  let projects = []
+
+  if (count > 0) {
+    // get 2 random projects
+    const indexes = getRandomIndexes(count)
+
+    for (let i = 0; i < indexes.length; i++) {
+      const project = await dcentra.methods.projects(indexes[i]).call()
       projects = [...projects, project]
     }
   }
@@ -88,4 +107,19 @@ export const createProject = async ({ title, desc, goal, path, category }) => {
     console.log(err)
     return false
   }
+}
+
+const getRandomIndexes = count => {
+  let indexes = []
+  let currentNum = 0
+
+  do {
+    currentNum = Math.floor(Math.random() * count)
+    console.log(currentNum)
+    if (!indexes.includes(currentNum)) {
+      indexes.push(currentNum)
+    }
+  } while (indexes.length < 2)
+
+  return indexes
 }

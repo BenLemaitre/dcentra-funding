@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getProjects } from '../libs/utils'
+import { getFeaturedProjects } from '../libs/utils'
 import { Heading, Stack, SimpleGrid } from '@chakra-ui/react'
 import ListItem from './list-item'
 
@@ -9,7 +9,7 @@ const Featured = () => {
   useEffect(() => {
     let isCurrent = true
 
-    getProjects(2).then(projects => {
+    getFeaturedProjects().then(projects => {
       if (isCurrent) {
         setProjects(projects)
       }

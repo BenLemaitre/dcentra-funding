@@ -21,22 +21,40 @@ const Categories = () => (
       Fundraise for...
     </Heading>
     <SimpleGrid pt={2} columns={[2, 3, 3]} gap={8}>
-      <CategoryButton href="/projects" label="Medical">
+      <CategoryButton
+        href={{ pathname: '/projects', query: { category: 'medical' } }}
+        label="Medical"
+      >
         <Image src={medicalPng} alt="medical" />
       </CategoryButton>
-      <CategoryButton href="/projects" label="Memorial">
+      <CategoryButton
+        href={{ pathname: '/projects', query: { category: 'memorial' } }}
+        label="Memorial"
+      >
         <Image src={memorialPng} alt="memorial" />
       </CategoryButton>
-      <CategoryButton href="/projects" label="Emergency">
+      <CategoryButton
+        href={{ pathname: '/projects', query: { category: 'emergency' } }}
+        label="Emergency"
+      >
         <Image src={emergencyPng} alt="emergency" />
       </CategoryButton>
-      <CategoryButton href="/projects" label="Non Profit">
+      <CategoryButton
+        href={{ pathname: '/projects', query: { category: 'non-profit' } }}
+        label="Non Profit"
+      >
         <Image src={nonProfitPng} alt="Non Profit" />
       </CategoryButton>
-      <CategoryButton href="/projects" label="Education">
+      <CategoryButton
+        href={{ pathname: '/projects', query: { category: 'education' } }}
+        label="Education"
+      >
         <Image src={educationPng} alt="education" />
       </CategoryButton>
-      <CategoryButton href="/projects" label="Animals">
+      <CategoryButton
+        href={{ pathname: '/projects', query: { category: 'animals' } }}
+        label="Animals"
+      >
         <Image src={animalsPng} alt="animal" />
       </CategoryButton>
     </SimpleGrid>
