@@ -18,20 +18,20 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
-    "react-scripts": "4.0.3",
     "truffle": "^5.4.12",
     "truffle-hdwallet-provider-privkey": "^0.3.0"
   },
   "devDependencies": {
-    "prettier": "^2.4.1",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "chai-bignumber": "^3.0.0"
+    "chai-bignumber": "^3.0.0",
+    "prettier": "^2.4.1"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "lint": "next lint"
   }
 }
