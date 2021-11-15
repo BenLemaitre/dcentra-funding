@@ -45,7 +45,7 @@ const Website = ({ Component, pageProps, router }) => {
             <Heading size="md">Welcome to Dcentra-Funding</Heading>
             <Image src={metamaskError} alt="metamask error" width="670px" />
             <Text fontWeight="bold">
-              Non-ethereum browser detected. You should consider using metamask
+              Please use Metamask to connect your wallet to Ropsten Test Network.
             </Text>
           </Stack>
         </AnimatePresence>
