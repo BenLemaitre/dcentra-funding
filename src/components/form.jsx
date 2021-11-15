@@ -81,10 +81,9 @@ const Form = ({ handleSubmit, captureFile, filename }) => {
         </Select>
         {/* Upload button */}
         <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-            children={<Icon as={FiFile} />}
-          />
+          <InputLeftElement pointerEvents="none">
+            <Icon as={FiFile} />
+          </InputLeftElement>
           <input
             type="file"
             accept={acceptedFileTypes}

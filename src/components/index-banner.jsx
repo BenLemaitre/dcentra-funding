@@ -20,7 +20,7 @@ const IndexBanner = () => (
       top={9}
     >
       <Heading fontWeight={600} fontSize={{ sm: '2xl', md: '4xl' }}>
-        Trusted fundraising for all of life's moments
+        Trusted fundraising for all of life&apos;s moments
       </Heading>
       <Text fontWeight={600}>
         Get help. Give kindness. Start in just 5 minutes.

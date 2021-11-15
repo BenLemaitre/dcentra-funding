@@ -43,6 +43,7 @@ const Donate = () => {
     return () => {
       isCurrent = false
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const onSubmitTransfer = async () => {

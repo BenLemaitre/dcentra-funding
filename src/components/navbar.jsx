@@ -14,7 +14,7 @@ import {
 import { SearchIcon, HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 
-const NavItem = ({ href, path, children }) => {
+const NavItem = ({ href, children }) => {
   return (
     <NextLink href={href} passHref>
       <Button
@@ -40,7 +40,13 @@ const Navbar = ({ path }) => {
     >
       <Container d="flex" p={2} maxW="container.lg.md">
         <Box align="left" flex={1}>
-          <Button size="sm" mx={2} variant="outline" leftIcon={<SearchIcon />}>
+          <Button
+            disabled
+            size="sm"
+            mx={2}
+            variant="outline"
+            leftIcon={<SearchIcon />}
+          >
             Search
           </Button>
           <NavItem href="/projects" path={path}>

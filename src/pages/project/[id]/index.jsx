@@ -29,6 +29,7 @@ const Project = () => {
     return () => {
       isCurrent = false
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
