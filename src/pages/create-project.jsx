@@ -21,6 +21,7 @@ const ipfs = ipfsClient({
 const CreateProject = () => {
   const [buffer, setBuffer] = useState({})
   const [filename, setFilename] = useState('')
+  const [loading, setLoading] = useState(false) 
 
   const toast = useToast()
 
@@ -39,6 +40,8 @@ const CreateProject = () => {
 
   const handleSubmit = async (e, project) => {
     e.preventDefault()
+
+    setLoading(true)
 
     const ipfsResult = await ipfs.add(buffer)
     const hasCreatedProject = await createProject({
@@ -63,6 +66,8 @@ const CreateProject = () => {
         isClosable: true
       })
     }
+
+    setLoading(false)
   }
 
   return (
@@ -94,6 +99,7 @@ const CreateProject = () => {
               handleSubmit={handleSubmit}
               captureFile={captureFile}
               filename={filename}
+              loading={loading}
             />
           </Stack>
         </Stack>

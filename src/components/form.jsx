@@ -30,7 +30,7 @@ const categories = [
   'animals'
 ]
 
-const Form = ({ handleSubmit, captureFile, filename }) => {
+const Form = ({ handleSubmit, captureFile, filename, loading }) => {
   const titleField = useFormField()
   const descriptionField = useFormField()
   const goalField = useFormField()
@@ -110,6 +110,9 @@ const Form = ({ handleSubmit, captureFile, filename }) => {
         w={'full'}
         colorScheme="whatsapp"
         boxShadow="lg"
+        isLoading={loading}
+        loadingText="Submitting"
+        spinnerPlacement="start"
       >
         Submit
       </Button>
