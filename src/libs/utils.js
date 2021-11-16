@@ -50,7 +50,7 @@ export const getFeaturedProjects = async () => {
   const count = await dcentra.methods.projectCount().call()
   let projects = []
 
-  if (count > 0) {
+  if (count > 1) {
     // get 2 random projects
     const indexes = getRandomIndexes(count)
 
