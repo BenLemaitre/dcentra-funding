@@ -22,6 +22,7 @@ const Donate = () => {
   const [project, setProject] = useState({})
   const [formattedCreatorAddress, setFormattedCreatorAddress] = useState('')
   const [donation, setDonation] = useState(0)
+  const [loading, setLoading] = useState(false)
   const toast = useToast()
 
   // will need to refactor to avoid useless data fetching
@@ -47,6 +48,8 @@ const Donate = () => {
   }, [])
 
   const onSubmitTransfer = async () => {
+    setLoading(true)
+
     const amountInWei = window.web3.utils.toWei(donation, 'Ether')
     const hasFundedProject = await fundProject(id, amountInWei)
 
@@ -69,6 +72,8 @@ const Donate = () => {
       duration: 5000,
       isClosable: true
     })
+
+    setLoading(false)
   }
 
   const handleChange = e => {
@@ -105,7 +110,13 @@ const Donate = () => {
           <Box>
             <Divider />
           </Box>
-          <Button colorScheme="whatsapp" onClick={onSubmitTransfer}>
+          <Button
+            colorScheme="whatsapp"
+            onClick={onSubmitTransfer}
+            isLoading={loading}
+            loadingText="Submitting"
+            spinnerPlacement="start"
+          >
             Submit
           </Button>
         </Stack>

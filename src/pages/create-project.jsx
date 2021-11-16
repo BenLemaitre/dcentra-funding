@@ -21,7 +21,7 @@ const ipfs = ipfsClient({
 const CreateProject = () => {
   const [buffer, setBuffer] = useState({})
   const [filename, setFilename] = useState('')
-  const [loading, setLoading] = useState(false) 
+  const [loading, setLoading] = useState(false)
 
   const toast = useToast()
 

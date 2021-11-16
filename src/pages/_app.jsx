@@ -45,7 +45,8 @@ const Website = ({ Component, pageProps, router }) => {
             <Heading size="md">Welcome to Dcentra-Funding</Heading>
             <Image src={metamaskError} alt="metamask error" width="670px" />
             <Text fontWeight="bold">
-              Please use Metamask to connect your wallet to Ropsten Test Network.
+              Please use Metamask to connect your wallet to Ropsten Test
+              Network.
             </Text>
           </Stack>
         </AnimatePresence>
